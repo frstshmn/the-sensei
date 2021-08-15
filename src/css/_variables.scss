@@ -1,0 +1,17 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+// Colors
+$light-gray: #eeeeee;
+$primary: #ffffff;
+$white-gradient: linear-gradient(0deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.2) 100%);
+$secondary: #222;
+$light-secondary: #222;
+$transparent-primary: rgba(255,255,255, 0.7);
+
+// Margins
+$card-margin: 20px;
+
