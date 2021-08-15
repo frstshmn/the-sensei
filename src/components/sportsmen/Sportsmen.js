@@ -4,8 +4,6 @@ import '../../css/sportsmen.scss';
 import { Route } from "react-router-dom";
 import Sportsman from './Sportsman.js';
 
-
-
 class Sportsmen extends React.Component {
 
   constructor(props){
@@ -14,6 +12,7 @@ class Sportsmen extends React.Component {
       showAddSportsmanModal: false,
       sportsmenElements: props.sportsmen.sportsmenData.map(el => <Sportsman name={el.name} /> ),
     };
+    this.newSportsmanName = React.createRef();
     this.toggleAddSportsmanModal = this.toggleAddSportsmanModal.bind(this);
   };
   
@@ -23,13 +22,14 @@ class Sportsmen extends React.Component {
 
   onNameChange = () => {
     this.props.dispatch({
-      type: 'addSportsman',
+      type: 'updateSportsmanName',
       name: this.newSportsmanName.current.value
     });
   }
 
   addSportsman = () => {
     this.props.dispatch({type: 'addSportsman'});
+    this.toggleAddSportsmanModal();
   };
 
   render(){
@@ -44,9 +44,10 @@ class Sportsmen extends React.Component {
         <Modal 
           active={this.state.showAddSportsmanModal} 
           dismiss={this.toggleAddSportsmanModal} 
-          title="Add new sportsmen"
+          title="Add new sportsman"
         >
           <input type="text" onChange={this.onNameChange} ref={this.newSportsmanName} value={this.props.sportsmen.sportsmanName} />
+          <button onClick={this.addSportsman}>Add</button>
         </Modal>
 
       </Route>

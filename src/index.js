@@ -6,14 +6,14 @@ import './css/index.scss';
 import MainWrapper from './components/MainWrapper.js';
 
 
-let renderDOM = (state) => {ReactDOM.render(
+let renderDOM = () => {ReactDOM.render(
   <BrowserRouter>
-    <MainWrapper appState={state} dispatch={store.dispatch.bind(store)}/>
+    <MainWrapper appState={store.getState()} dispatch={store.dispatch.bind(store)}/>
   </BrowserRouter>,
   document.getElementById('root')
 );
 }
 
-renderDOM(store.getState());
+renderDOM();
 
 store.subscribe(renderDOM);
